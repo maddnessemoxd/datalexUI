@@ -1,0 +1,14 @@
+<div class="popup popup--<%=update.status%>">
+  <div class="popup-icon popup-icon--<%=update.status%> popup--<%=update.status%>-darker">
+  <% if (update.status === "error") {%>
+    <i class="glyphicon glyphicon-remove popup-icon-size"></i>
+  <%} else if (update.status === "warning") {%>
+  <i class="glyphicon glyphicon-warning-sign popup-icon-size"></i>
+  <%} else if (update.status === "success") {%>
+  <i class="glyphicon glyphicon-ok popup-icon-size"></i>
+  <%}%>
+  </div>
+  <div class="popup-body">
+    <p class="popup__title"><%=update.statusText%></p>
+  </div>
+</div>

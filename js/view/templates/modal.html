@@ -1,0 +1,36 @@
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content modal__content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title modal__title">Add new App_IP:port</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <p class="col col-lg-3 col-md-3 col-xs-3">Port</p>
+          <input type="text" class="modal__input--port col col-lg-8 col-md-8 col-xs-8">
+        </div>
+
+        <div class="row">
+          <p class="col col-lg-3 col-md-3 col-xs-3">Remote</p>
+          <input type="url" class="modal__input--remote col col-lg-8 col-md-8 col-xs-8" required pattern="https?://.+">
+        </div>
+
+        <div class="row">
+          <p class="col col-lg-3 col-md-3 col-xs-3">Mode</p>
+          <select class="form-control table__mode table__mode--modal col col-lg-8 col-md-8 col-xs-8">
+            <%_.each(mods, function(mode, index){%>
+            <option><%=mode%></option>
+            <%})%>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default button" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-success  button modal__button--submit">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>

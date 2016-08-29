@@ -1,0 +1,37 @@
+<% _.each(data['config'],function(value,key){ %>
+<tr class="table__row">
+  <td class="table__cell"><a href="" class="table__port"><%=data['config'][key].localPort%></a></td>
+  <td class="table__cell"><input type="url" class="table__input table__input--remote" value="<%=data['config'][key].remoteHost%>" required pattern="https?://.+"></td>
+  <td class="table__cell">
+    <select class="form-control table__mode">
+      <%_.each(data['mods'], function(mode, index){%>
+      <%if(mode === data['config'][key].mode.toUpperCase()){%>
+      <option selected><%=mode%></option>
+      <%} else {%>
+      <option><%=mode%></option>
+      <%}%>
+      <%})%>
+    </select>
+  </td>
+  <%if(data['config'][key].mode.toLowerCase() !== 'flow_emulator'){%>
+  <td class="table__cell">
+    <input type="text" class="table__input table__input--step" value="1" style="display: none">
+    <button type="button" class="btn btn-success button button__update button__update--step" style="display:none">Set step</button>
+  </td>
+  <td class="table__cell">
+    <button type="button" class="btn btn-success button button__update button__update--config">Update</button>
+  </td>
+  <%} else {%>
+  <td class="table__cell">
+    <input type="text" class="table__input table__input--step" value="<%=data['config'][key].step%>">
+    <button type="button" class="btn btn-success button button__update button__update--step">Set step</button>
+  </td>
+  <td class="table__cell">
+    <button type="button" class="btn btn-success button button__update button__update--config">Update</button>
+  </td>
+<%}%>
+  <td class="table__cell">
+    <button type="button" class="btn btn-danger button button__remove" data-toggle="modal" data-target="#deleteModal">Delete</button>
+  </td>
+</tr>
+<%})%>

@@ -1,0 +1,25 @@
+<% _.each(data['port'],function(value,key){ %>
+<tr class="table__row">
+  <td class="table__cell"><a href="#" class="table__port"><%=value%></a></td>
+  <td class="table__cell"><input type="url" class="table__input table__input--remote" value=""></td>
+  <td class="table__cell">
+    <select class="form-control table__mode">
+      <%_.each(data['mods'], function(mode, index){%>
+      <option><%=mode%></option>
+      <%})%>
+    </select>
+  </td>
+  <td class="table__cell">
+    <input type="text" class="table__input table__input--step" value="1" style="display:none">
+  </td>
+  <td class="table__cell">
+    <button type="button" class="btn btn-success button button__update" disabled>Update</button>
+  </td>
+  <td class="table__cell">
+    <button type="button" class="btn btn-success button button__send">Send</button>
+  </td>
+  <td class="table__cell">
+    <button type="button" class="btn btn-danger button button__remove">Delete</button>
+  </td>
+</tr>
+<%})%>
